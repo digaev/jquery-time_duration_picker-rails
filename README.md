@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-And this line in your application js:
+Add this line in your application js:
 
 ```js
 //= require jquery.timeDurationPicker
