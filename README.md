@@ -1,5 +1,7 @@
 # jQuery.timeDurationPicker Rails
 
+[![Gem Version](https://badge.fury.io/rb/jquery-time_duration_picker-rails.svg)](https://badge.fury.io/rb/jquery-time_duration_picker-rails)
+
 https://github.com/digaev/jQuery-timeDurationPicker
 
 ## Installation
