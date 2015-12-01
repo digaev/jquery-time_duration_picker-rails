@@ -46,6 +46,8 @@ In your view:
 </script>
 ```
 
+Also see [this example] (https://jsfiddle.net/73eonrox/1/).
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/digaev/jquery-time_duration_picker-rails.
