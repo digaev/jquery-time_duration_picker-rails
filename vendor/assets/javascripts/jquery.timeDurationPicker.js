@@ -1,5 +1,5 @@
 /*!
- * jQuery TimeDurationPicker Plugin v1.0.0
+ * jQuery TimeDurationPicker Plugin v1.0.1
  *
  * https://github.com/digaev/jQuery-timeDurationPicker
  *
@@ -9,7 +9,7 @@
 
 (function($) {
   $.timeDurationPicker = function(options) {
-    $.timeDurationPicker.defaults = $.extend($.timeDurationPicker.defaults, options);
+    $.timeDurationPicker.defaults = $.extend({}, $.timeDurationPicker.defaults, options);
   }
 
   $.timeDurationPicker.defaults = {
@@ -76,6 +76,7 @@
         human_hours: 'hours',
         human_minutes: 'minutes',
         human_seconds: 'seconds',
+        and: 'and',
         button_ok: 'Done'
       },
       ru: {
@@ -91,13 +92,14 @@
         human_hours: 'часов',
         human_minutes: 'минут',
         human_seconds: 'секунд',
+        and: 'и',
         button_ok: 'Выбрать'
       }
     },
     _create: function() {
         var self = this;
 
-        this.options = $.extend($.timeDurationPicker.defaults, this.options);
+        this.options = $.extend({}, $.timeDurationPicker.defaults, this.options);
 
         this._content = {};
         this._content.div = $('<div />');
@@ -128,7 +130,7 @@
         this._content.button.on('click', function(e) {
           self._content.div.fadeOut();
           if (self.options.onselect) {
-            self.options.onselect(self.getDuration(), self.getHumanDuration());
+            self.options.onselect(self.element, self.getDuration(), self.getHumanDuration());
           }
         });
         this._content.button.appendTo(this._content.div);
@@ -170,7 +172,6 @@
     _createSelectWithOptions: function(min, max) {
         var select = $('<select />')
           .addClass('ui-widget ui-state-default ui-corner-all')
-          .appendTo(this._content.tableBody);
 
         select.hover(function() {
           $(this).addClass('ui-state-hover');
@@ -235,6 +236,7 @@
       if (this.options.years) {
         i = Math.floor(value / (12 * 30 * 24 * 60 * 60));
         this._content.years.val(i);
+        value -= i;
       }
       if (this.options.months) {
         i = Math.floor(value / (30 * 24 * 60 * 60));
@@ -242,6 +244,7 @@
           i = 0;
         }
         this._content.months.val(i);
+        value -= i;
       }
       if (this.options.days) {
         i = Math.floor(value / (24 * 60 * 60));
@@ -249,6 +252,7 @@
           i = 0;
         }
         this._content.days.val(i);
+        value -= i;
       }
       if (this.options.hours) {
         i = Math.floor(value / (60 * 60));
@@ -256,6 +260,7 @@
           i = 0;
         }
         this._content.hours.val(i);
+        value -= i;
       }
       if (this.options.minutes) {
         i = Math.floor(value / 60);
@@ -263,6 +268,7 @@
           i = 0;
         }
         this._content.minutes.val(i);
+        value -= i;
       }
       if (this.options.seconds) {
         i = Math.floor(value);
@@ -296,39 +302,33 @@
       return seconds;
     },
     getHumanDuration: function() {
+      var units = [];
       var duration = '';
+
       if (this.options.years && this.getYears() > 0) {
-        duration += this.getYears() + ' ' + this._tr('human_years');
+        units.push({value: this.getYears(), name: this._tr('human_years')});
       }
       if (this.options.months && this.getMonths() > 0) {
-        if (duration) {
-          duration += ', ';
-        }
-        duration += this.getMonths() + ' ' + this._tr('human_months');
+        units.push({value: this.getMonths(), name: this._tr('human_months')});
       }
       if (this.options.days && this.getDays() > 0) {
-        if (duration) {
-          duration += ', ';
-        }
-        duration += this.getDays() + ' ' + this._tr('human_days');
+        units.push({value: this.getDays(), name: this._tr('human_days')});
       }
       if (this.options.hours && this.getHours() > 0) {
-        if (duration) {
-          duration += ', ';
-        }
-        duration += this.getHours() + ' ' + this._tr('human_hours');
+        units.push({value: this.getHours(), name: this._tr('human_hours')});
       }
       if (this.options.minutes && this.getMinutes() > 0) {
-        if (duration) {
-          duration += ', ';
-        }
-        duration += this.getMinutes() + ' ' + this._tr('human_minutes');
+        units.push({value: this.getMinutes(), name: this._tr('human_minutes')});
       }
       if (this.options.seconds && this.getSeconds() > 0) {
-        if (duration) {
-          duration += ', ';
-        }
-        duration += this.getSeconds() + ' ' + this._tr('human_seconds');
+        units.push({value: this.getSeconds(), name: this._tr('human_seconds')});
+      }
+
+      for (var i = 0, l = units.length; i < l; ++i) {
+        var unit = units[i];
+        var separator = i == l - 1 ? '' : (i == l - 2 ? ' ' + this._tr('and') + ' ' : ', ');
+
+        duration += unit.value + ' ' + unit.name + separator;
       }
       return duration;
     }
