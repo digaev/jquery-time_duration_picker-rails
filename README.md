@@ -39,9 +39,9 @@ In your view:
 <script type="text/javascript">
     $(document).ready(function() {
         $('#duration').timeDurationPicker({
-            onselect: function(seconds, humanDuration) {
-                $('#duration').val(humanDuration);
+            onselect: function(element, seconds, duration) {
                 $('#seconds').val(seconds);
+                $('#duration').val(duration);
             }
         });
     });
