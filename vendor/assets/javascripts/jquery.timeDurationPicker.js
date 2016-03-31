@@ -1,5 +1,5 @@
 /*!
- * jQuery TimeDurationPicker Plugin v1.0.3
+ * jQuery TimeDurationPicker Plugin v1.0.4
  *
  * https://github.com/digaev/jQuery-timeDurationPicker
  *
@@ -33,6 +33,8 @@
         if (inst.element[j] == e.target) {
           var offset = $(e.target).offset();
           offset.top += $(e.target).outerHeight();
+          offset.top -= $(window).scrollTop();
+          offset.left -= $(window).scrollLeft();
           inst._content.div.css(offset).fadeIn();
         }
       }
