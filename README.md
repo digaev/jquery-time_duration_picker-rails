@@ -48,7 +48,7 @@ In your view:
 </script>
 ```
 
-Also see [this example] (https://jsfiddle.net/73eonrox/1/).
+Also see [this example] (https://jsfiddle.net/k10ggor8/1/).
 
 ## Contributing
 
