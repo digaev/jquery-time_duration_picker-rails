@@ -1,5 +1,5 @@
 /*!
- * jQuery TimeDurationPicker Plugin v1.0.2
+ * jQuery TimeDurationPicker Plugin v1.0.3
  *
  * https://github.com/digaev/jQuery-timeDurationPicker
  *
@@ -98,6 +98,22 @@
         human_hours: 'часов',
         human_minutes: 'минут',
         human_seconds: 'секунд',
+        and: 'и',
+        button_ok: 'Выбрать'
+      },
+      ru_short: {
+        seconds: 'Секунды',
+        minutes: 'Минуты',
+        hours: 'Часы',
+        days: 'Дни',
+        months: 'Месяцы',
+        years: 'Годы',
+        human_years: 'г.',
+        human_months: 'мес.',
+        human_days: 'д.',
+        human_hours: 'час.',
+        human_minutes: 'мин.',
+        human_seconds: 'сек.',
         and: 'и',
         button_ok: 'Выбрать'
       }
