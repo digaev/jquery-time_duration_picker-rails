@@ -32,8 +32,6 @@ Add this line in your application js:
 
 See [this example] (https://github.com/digaev/jQuery-timeDurationPicker/blob/master/example/index.html).
 
-In your view:
-
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/digaev/jquery-time_duration_picker-rails.
