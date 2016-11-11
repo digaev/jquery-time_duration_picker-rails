@@ -1,8 +1,8 @@
-# jQuery.timeDurationPicker Rails
+# jquery-time-duration-picker gem for Ruby On Rails
 
 [![Gem Version](https://badge.fury.io/rb/jquery-time_duration_picker-rails.svg)](https://badge.fury.io/rb/jquery-time_duration_picker-rails)
 
-https://github.com/digaev/jQuery-timeDurationPicker
+https://github.com/digaev/jquery-time-duration-picker
 
 ## Installation
 
@@ -34,4 +34,4 @@ See [this example] (https://github.com/digaev/jquery-time-duration-picker/blob/m
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/digaev/jquery-time_duration_picker-rails.
+Bug reports and pull requests are welcome on GitHub at https://github.com/digaev/jquery-time-duration-picker.
