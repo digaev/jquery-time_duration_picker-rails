@@ -30,7 +30,7 @@ Add this line in your application js:
 
 ## Example
 
-See [this example] (https://github.com/digaev/jQuery-timeDurationPicker/blob/master/example/index.html).
+See [this example] (https://github.com/digaev/jquery-time-duration-picker/blob/master/example/index.html).
 
 ## Contributing
 
