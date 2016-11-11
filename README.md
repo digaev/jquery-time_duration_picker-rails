@@ -28,27 +28,11 @@ Add this line in your application js:
 //= require jquery.timeDurationPicker
 ```
 
+## Example
+
+See [this example] (https://github.com/digaev/jQuery-timeDurationPicker/blob/master/example/index.html).
+
 In your view:
-
-```html
-<input type="text" name="duration" id="duration" readonly="readonly" />
-<input type="hidden" name="seconds" id="seconds" value="0"  />
-
-...
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#duration').timeDurationPicker({
-            onselect: function(element, seconds, duration) {
-                $('#seconds').val(seconds);
-                $('#duration').val(duration);
-            }
-        });
-    });
-</script>
-```
-
-Also see [this example] (https://jsfiddle.net/k10ggor8/1/).
 
 ## Contributing
 
